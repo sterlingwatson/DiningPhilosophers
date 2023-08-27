@@ -98,6 +98,7 @@ class Philosopher extends Thread {
                 eat();
             }
             timesUp = true;
+            hungryDuration = 60000 - (thinkingDuration + eatingDuration);
             System.out.printf("Philosopher %d: hungry: %dms, eatingTime: %dms, thinking: %dms\n", id, hungryDuration, eatingDuration, thinkingDuration);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -105,7 +106,7 @@ class Philosopher extends Thread {
     }
 }
 
-public class DiningPhilosophers {
+public class DiningPhilosophersQuestion1 {
     public static void main(String[] args) {
         Lock[] forks = new Lock[4];
         for (int i = 0; i < forks.length; i++) {
